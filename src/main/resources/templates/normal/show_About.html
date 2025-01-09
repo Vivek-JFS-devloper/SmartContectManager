@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{'normal/base' :: layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${title}">Insert title here</title>
+</head>
+
+<body>
+	<section>
+		<div class="card mr-5 ml-5">
+			<div class="card-body mr-5" th:if=${contact}>
+				
+				<!--  Alert function-->
+				<div th:if="${session.message}" th:classappend="${'alert-'+session.message.type}"
+					class="alert text-center" role="alert">
+					<span th:text="${session.message.content}"></span>
+
+					<!-- <th:block th:text="${#session.removeAttribute('message')}"></th:block> -->
+					<th:block th:text="${@sessionHelper.removeMassageFromSession()}"></th:block>
+				</div>
+				
+				<div class="cotainer-fluid  mt-2">
+					<img th:src="@{'/image/'+${contact.image}}" style="height:100px; width: 100px;" />
+					<h1 class="text-center" style="position: absolute; top: 50px; left: 400px;">Show Details</h1>
+
+				</div>
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col"># ID</th>
+							<td scope="col" th:text="${contact.cid}">First</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">Name</th>
+							<td th:text="${contact.fname+' '+contact.cname}">Mark</td>
+						</tr>
+
+						<tr>
+							<th scope="row">Email</th>
+							<td th:text="${contact.email}">Mark</td>
+						</tr>
+
+						<tr>
+							<th scope="row">Phone</th>
+							<td th:text="${'+91'+contact.phone}">Mark</td>
+						</tr>
+
+						<tr>
+							<th scope="row">Professions</th>
+							<td th:text="${contact.work}">Mark</td>
+						</tr>
+
+						<tr>
+							<th scope="row">Descriptions</th>
+							<td th:text="${contact.description}">Mark</td>
+						</tr>
+				</table>
+				<div class="container text-center">
+					<a href="#" th:onclick="|deleteContact(${contact.cid})|" class="btn btn-danger btn-sm">Delete</a>
+					<form th:action="@{'/user/update/'+${contact.cid}}" method="post" style="display: inline-block;">
+						<button type="submit" class="btn btn-primary btn-sm">Update</button>
+					</form>
+					<a th:href = "@{/user/showViewContacts/0}">
+					<button type="submit" class="btn btn-primary btn-sm">Go Back</button>
+					</a>
+				</div>
+			</div>
+		</div>
+		<h1 th:unless=${contact}> <span>Your data is not found</span> </h1>
+	</section>
+</body>
+
+</html>

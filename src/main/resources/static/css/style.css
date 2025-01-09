@@ -1,0 +1,104 @@
+body {
+	background-color: #e2e2e2 !important;
+}
+
+.bg-primary {
+	background: #009688 !important;
+}
+
+.banner {
+	height: 100vh;
+	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+		url(../image/img1.jpg);
+	background-clip: border-box;
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: #009688;
+	color: #fff;
+}
+
+.my-card {
+	padding: 12px;
+	background: linear-gradient(rgba(250, 255, 255, 0.8),
+			rgba(0, 200, 50, 0.8), rgba(100, 255, 255, 0.8),
+			rgba(255, 100, 50, 0.8)), url(../image/img1.jpg);
+}
+
+nav {
+	position: fixed;
+}
+
+.divider:after,
+.divider:before {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: #eee;
+}
+
+.h-custom {
+	height: calc(100% - 6px);
+}
+
+@media (max-width: 450px) {
+	.h-custom {
+		height: 100%;
+	}
+}
+/* side bar styleing*/
+
+@media only screen and (max-width:600px){
+	.sideBar{
+		display: none;
+		width: 80vw !important;
+		height: 90vh;
+		background-color: #fff;
+		position: fixed;
+		padding-top: 20px;
+	}
+	.content{
+		margin-left: 1% !important;
+		 
+	}
+}
+
+.sideBar{
+	width: 18vw;
+	height: 83vh;
+	background-color: #fff;
+	position: fixed;
+	padding-top: 45px;
+	z-index: 2;
+}
+.sideBar a{
+	text-decoration: none;
+	display: block;
+	padding: 10px 30px;
+	color: grey;
+}
+.sideBar a:hover{
+	background-color: #e3e3e3;
+	font-weight: bold;
+	transition: 0.5s;
+	background-color: #e2e2e2;
+}
+.cross-btn{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 30px;
+	color: grey;
+	cursor: pointer;
+}
+.content{
+	margin-left: 20vw;
+	height: 80vh;
+}
+/*profile image*/
+.profile-img{
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	margin-right: 5px;
+	border-radius: 50%;
+}
